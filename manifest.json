@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "아주대학교 동아리",
+  "name": "아주대학교 동아리",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "univ_logo.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
