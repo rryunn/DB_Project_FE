@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/DB_Project_FE/static/css/main.2c5a2aba.css",
-    "main.js": "/DB_Project_FE/static/js/main.f8eb49df.js",
+    "main.js": "/DB_Project_FE/static/js/main.b43c4e1b.js",
     "static/media/체육.png": "/DB_Project_FE/static/media/체육.5c35c5a5c02363d78a4e.png",
     "static/media/사교.png": "/DB_Project_FE/static/media/사교.6fa96937417e6b1c9a54.png",
     "static/media/종교.png": "/DB_Project_FE/static/media/종교.7257136d5bb7352cb070.png",
@@ -15,10 +15,10 @@
     "static/media/봉사.jpg": "/DB_Project_FE/static/media/봉사.4fdc39e5051ff7b92c85.jpg",
     "index.html": "/DB_Project_FE/index.html",
     "main.2c5a2aba.css.map": "/DB_Project_FE/static/css/main.2c5a2aba.css.map",
-    "main.f8eb49df.js.map": "/DB_Project_FE/static/js/main.f8eb49df.js.map"
+    "main.b43c4e1b.js.map": "/DB_Project_FE/static/js/main.b43c4e1b.js.map"
   },
   "entrypoints": [
     "static/css/main.2c5a2aba.css",
-    "static/js/main.f8eb49df.js"
+    "static/js/main.b43c4e1b.js"
   ]
 }
