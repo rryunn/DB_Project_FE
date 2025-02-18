@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/DB_Project_FE/static/css/main.e024a896.css",
-    "main.js": "/DB_Project_FE/static/js/main.6bed98ea.js",
+    "main.js": "/DB_Project_FE/static/js/main.3aeffd38.js",
     "static/media/체육.png": "/DB_Project_FE/static/media/체육.5c35c5a5c02363d78a4e.png",
     "static/media/사교.png": "/DB_Project_FE/static/media/사교.6fa96937417e6b1c9a54.png",
     "static/media/종교.png": "/DB_Project_FE/static/media/종교.7257136d5bb7352cb070.png",
@@ -17,14 +17,15 @@
     "static/media/partner1-1.jpg": "/DB_Project_FE/static/media/partner1-1.74536883fba020fcd422.jpg",
     "static/media/partner2.jpg": "/DB_Project_FE/static/media/partner2.7e665d6437a2034e615b.jpg",
     "static/media/partner1.jpg": "/DB_Project_FE/static/media/partner1.7097b28a6be584bf4855.jpg",
+    "static/media/footLogo2.png": "/DB_Project_FE/static/media/footLogo2.3472e8acc9ecfc708165.png",
     "static/media/mainLogo.png": "/DB_Project_FE/static/media/mainLogo.26525fe0526dc7a191b7.png",
     "static/media/봉사.jpg": "/DB_Project_FE/static/media/봉사.4fdc39e5051ff7b92c85.jpg",
     "index.html": "/DB_Project_FE/index.html",
     "main.e024a896.css.map": "/DB_Project_FE/static/css/main.e024a896.css.map",
-    "main.6bed98ea.js.map": "/DB_Project_FE/static/js/main.6bed98ea.js.map"
+    "main.3aeffd38.js.map": "/DB_Project_FE/static/js/main.3aeffd38.js.map"
   },
   "entrypoints": [
     "static/css/main.e024a896.css",
-    "static/js/main.6bed98ea.js"
+    "static/js/main.3aeffd38.js"
   ]
 }
