@@ -1,8 +1,21 @@
-<script>
-  var path = window.location.pathname;
-  if (path !== "/") {
-    window.location.replace("/#" + path);
-  } else {
-    window.location.replace("/");
-  }
-</script>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        // 현재 경로를 가져옴 (예: "/clublist")
+        var path = window.location.pathname;
+        // 이미 해시(#)가 포함되어 있지 않은 경우에만 리다이렉트
+        if (path !== "/" && !window.location.hash) {
+          // 리다이렉트할 때 "/#/clublist" 형태로 변경
+          window.location.replace(path);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
