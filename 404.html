@@ -5,13 +5,22 @@
     <title>Redirecting...</title>
     <script>
       (function () {
-        // 현재 경로를 가져옴 (예: "/clublist")
-        var path = window.location.pathname;
-        // 이미 해시(#)가 포함되어 있지 않은 경우에만 리다이렉트
-        if (path !== "/" && !window.location.hash) {
-          // 리다이렉트할 때 "/#/clublist" 형태로 변경
-          window.location.replace(path);
+        // GitHub Pages 프로젝트의 베이스 경로
+        var basePath = "/DB_Project_FE";
+        // 현재 경로 (예: "/DB_Project_FE/clublist")
+        var currentPath = window.location.pathname;
+
+        // 베이스 경로 이후의 라우트 부분 추출 (예: "/clublist")
+        var route =
+          currentPath.indexOf(basePath) === 0
+            ? currentPath.slice(basePath.length)
+            : currentPath;
+        if (!route) {
+          route = "/";
         }
+
+        // 리다이렉트: 베이스 경로를 유지한 채 hash 라우팅 적용
+        window.location.replace(basePath + "/#" + route);
       })();
     </script>
   </head>
