@@ -1,32 +1,32 @@
 {
   "files": {
     "main.css": "/static/css/main.e024a896.css",
-    "main.js": "/static/js/main.d2848866.js",
-    "static/media/체육.png": "/static/media/체육.5c35c5a5c02363d78a4e.png",
-    "static/media/사교.png": "/static/media/사교.6fa96937417e6b1c9a54.png",
-    "static/media/종교.png": "/static/media/종교.7257136d5bb7352cb070.png",
-    "static/media/문화예술.png": "/static/media/문화예술.c3723e1218d3ed523469.png",
-    "static/media/창업.png": "/static/media/창업.22e5fab521483cd73ea1.png",
+    "main.js": "/static/js/main.525f976e.js",
+    "static/media/체육.png": "/static/media/체육.a7bb8d66f8da65b0b4d3.png",
+    "static/media/사교.png": "/static/media/사교.37d6b415e932bef20624.png",
+    "static/media/문화예술.png": "/static/media/문화예술.94dfcbebbd851eedbf50.png",
+    "static/media/종교.png": "/static/media/종교.b72a1239438f94b7930c.png",
+    "static/media/창업.png": "/static/media/창업.ace1e03e9263011246e5.png",
     "static/media/동아리로고.png": "/static/media/동아리로고.a52a39626de6c95c538f.png",
     "static/media/취임사.jpg": "/static/media/취임사.85d76686575d3c1b5087.jpg",
     "static/media/img.jpg": "/static/media/img.ddd2ac153c27a72c8743.jpg",
     "static/media/partner1-2.jpg": "/static/media/partner1-2.a6e352269eac9e679b29.jpg",
-    "static/media/학술.png": "/static/media/학술.93291f46209e155547fa.png",
     "static/media/partner1-3.jpg": "/static/media/partner1-3.c436829e2d87e1fdcd05.jpg",
     "static/media/partner2-1.jpg": "/static/media/partner2-1.d53ad9cce45d8f775b93.jpg",
     "static/media/partner1-1.jpg": "/static/media/partner1-1.74536883fba020fcd422.jpg",
     "static/media/partner2.jpg": "/static/media/partner2.7e665d6437a2034e615b.jpg",
     "static/media/partner1.jpg": "/static/media/partner1.7097b28a6be584bf4855.jpg",
+    "static/media/학술.png": "/static/media/학술.b5883e4e97d54ed319ce.png",
     "static/media/footLogo2.png": "/static/media/footLogo2.3472e8acc9ecfc708165.png",
     "static/media/mainLogo.png": "/static/media/mainLogo.26525fe0526dc7a191b7.png",
     "static/media/치토.jpeg": "/static/media/치토.afa220f273ba02a36ddb.jpeg",
-    "static/media/봉사.jpg": "/static/media/봉사.4fdc39e5051ff7b92c85.jpg",
+    "static/media/봉사.jpg": "/static/media/봉사.05f78a55678dcd4c3838.jpg",
     "index.html": "/index.html",
     "main.e024a896.css.map": "/static/css/main.e024a896.css.map",
-    "main.d2848866.js.map": "/static/js/main.d2848866.js.map"
+    "main.525f976e.js.map": "/static/js/main.525f976e.js.map"
   },
   "entrypoints": [
     "static/css/main.e024a896.css",
-    "static/js/main.d2848866.js"
+    "static/js/main.525f976e.js"
   ]
 }
