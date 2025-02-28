@@ -7,6 +7,7 @@ const search = window.location.search;
 if (search && search.startsWith("?")) {
   // '?' 이후의 문자열을 디코딩하여 원래 경로를 가져옴
   const path = decodeURIComponent(search.slice(1));
+  console.log("리디렉션할 경로: ", path);
   // 브라우저 URL을 원래 경로로 교체 (페이지 새로고침 시 올바른 경로로 동작)
   window.history.replaceState(null, "", path);
 }
