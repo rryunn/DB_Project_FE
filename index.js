@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 // 만약 URL에 쿼리 파라미터가 있다면 (404.html에서 전달된 경우)
+console.log("index.js 실행됨, 현재 URL:", window.location.href);
 const search = window.location.search;
 if (search && search.startsWith("?")) {
   // '?' 이후의 문자열을 디코딩하여 원래 경로를 가져옴
