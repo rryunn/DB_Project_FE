@@ -1,12 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e024a896.css",
-    "main.js": "/static/js/main.e4871512.js",
-    "static/media/체육.png": "/static/media/체육.a7bb8d66f8da65b0b4d3.png",
-    "static/media/사교.png": "/static/media/사교.37d6b415e932bef20624.png",
-    "static/media/문화예술.png": "/static/media/문화예술.94dfcbebbd851eedbf50.png",
-    "static/media/종교.png": "/static/media/종교.b72a1239438f94b7930c.png",
-    "static/media/창업.png": "/static/media/창업.ace1e03e9263011246e5.png",
+    "main.js": "/static/js/main.bdd14486.js",
     "static/media/동아리로고.png": "/static/media/동아리로고.a52a39626de6c95c538f.png",
     "static/media/취임사.jpg": "/static/media/취임사.85d76686575d3c1b5087.jpg",
     "static/media/img.jpg": "/static/media/img.ddd2ac153c27a72c8743.jpg",
@@ -16,17 +11,22 @@
     "static/media/partner1-1.jpg": "/static/media/partner1-1.74536883fba020fcd422.jpg",
     "static/media/partner2.jpg": "/static/media/partner2.7e665d6437a2034e615b.jpg",
     "static/media/partner1.jpg": "/static/media/partner1.7097b28a6be584bf4855.jpg",
-    "static/media/학술.png": "/static/media/학술.b5883e4e97d54ed319ce.png",
+    "static/media/스포츠.jpg": "/static/media/스포츠.e1618f0e43ae0bc09179.jpg",
+    "static/media/사교.jpg": "/static/media/사교.87b037b1c6095237dbeb.jpg",
+    "static/media/문화예술.jpg": "/static/media/문화예술.7683e6de19c73a4ae36f.jpg",
+    "static/media/종교.jpg": "/static/media/종교.3c7d6a7c2db6adefdc4c.jpg",
+    "static/media/창업.jpg": "/static/media/창업.fe875afd9a0efedadb61.jpg",
+    "static/media/학술.jpg": "/static/media/학술.ce3261c1fc2691d6d568.jpg",
     "static/media/footLogo2.png": "/static/media/footLogo2.3472e8acc9ecfc708165.png",
     "static/media/mainLogo.png": "/static/media/mainLogo.26525fe0526dc7a191b7.png",
     "static/media/치토.jpeg": "/static/media/치토.afa220f273ba02a36ddb.jpeg",
-    "static/media/봉사.jpg": "/static/media/봉사.05f78a55678dcd4c3838.jpg",
+    "static/media/봉사.jpg": "/static/media/봉사.772d2e8d325ef68975b3.jpg",
     "index.html": "/index.html",
     "main.e024a896.css.map": "/static/css/main.e024a896.css.map",
-    "main.e4871512.js.map": "/static/js/main.e4871512.js.map"
+    "main.bdd14486.js.map": "/static/js/main.bdd14486.js.map"
   },
   "entrypoints": [
     "static/css/main.e024a896.css",
-    "static/js/main.e4871512.js"
+    "static/js/main.bdd14486.js"
   ]
 }
