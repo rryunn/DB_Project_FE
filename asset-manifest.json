@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e024a896.css",
-    "main.js": "/static/js/main.943b50e8.js",
+    "main.js": "/static/js/main.36419dee.js",
     "static/media/체육.png": "/static/media/체육.a7bb8d66f8da65b0b4d3.png",
     "static/media/사교.png": "/static/media/사교.37d6b415e932bef20624.png",
     "static/media/문화예술.png": "/static/media/문화예술.94dfcbebbd851eedbf50.png",
@@ -23,10 +23,10 @@
     "static/media/봉사.jpg": "/static/media/봉사.05f78a55678dcd4c3838.jpg",
     "index.html": "/index.html",
     "main.e024a896.css.map": "/static/css/main.e024a896.css.map",
-    "main.943b50e8.js.map": "/static/js/main.943b50e8.js.map"
+    "main.36419dee.js.map": "/static/js/main.36419dee.js.map"
   },
   "entrypoints": [
     "static/css/main.e024a896.css",
-    "static/js/main.943b50e8.js"
+    "static/js/main.36419dee.js"
   ]
 }
