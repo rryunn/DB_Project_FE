@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e024a896.css",
-    "main.js": "/static/js/main.d955deb8.js",
+    "main.js": "/static/js/main.efe2ddc6.js",
     "static/media/동아리로고.png": "/static/media/동아리로고.a52a39626de6c95c538f.png",
     "static/media/취임사.jpg": "/static/media/취임사.85d76686575d3c1b5087.jpg",
     "static/media/img.jpg": "/static/media/img.ddd2ac153c27a72c8743.jpg",
@@ -23,10 +23,10 @@
     "static/media/봉사.jpg": "/static/media/봉사.772d2e8d325ef68975b3.jpg",
     "index.html": "/index.html",
     "main.e024a896.css.map": "/static/css/main.e024a896.css.map",
-    "main.d955deb8.js.map": "/static/js/main.d955deb8.js.map"
+    "main.efe2ddc6.js.map": "/static/js/main.efe2ddc6.js.map"
   },
   "entrypoints": [
     "static/css/main.e024a896.css",
-    "static/js/main.d955deb8.js"
+    "static/js/main.efe2ddc6.js"
   ]
 }
