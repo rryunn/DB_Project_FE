@@ -135,7 +135,7 @@ function SearchPage() {
         <S.SearchInputContainer>
           <S.SearchInput
             type="text"
-            placeholder="동아리명 검색 (선택 사항)"
+            placeholder="동아리명을 입력하세요. (선택사항)"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />

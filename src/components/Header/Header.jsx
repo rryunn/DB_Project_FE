@@ -25,7 +25,7 @@ function Header() {
         {/* 검색 입력창 (readOnly) */}
         <S.SearchWrapper onClick={handleSearchInputClick}>
           <S.SearchInput
-            placeholder="동아리명 검색"
+            placeholder="동아리 검색하기"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             readOnly
