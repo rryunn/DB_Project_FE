@@ -19,8 +19,8 @@ const Footer = () => {
         </span>
         &copy; 2025 ACM. All rights reserved.
         <br />
-        관리자 이메일:{' '}
-        <AdminEmailLink href="mailto:rryunn@ajou.ac.kr">
+        서비스 문의:{' '}
+        <AdminEmailLink href=" jhm7916@ajou.ac.kr">
           rryunn@ajou.ac.kr
         </AdminEmailLink>
       </ContentWrapper>
