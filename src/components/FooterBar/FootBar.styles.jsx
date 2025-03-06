@@ -14,6 +14,7 @@ export const ContentWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   text-align: center;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -102,5 +103,12 @@ export const AdminEmailLink = styled.a`
   text-decoration: none; /* 밑줄 제거 */
   &:hover {
     text-decoration: underline; /* 호버 시 밑줄 표시 (선택 사항) */
+  }
+`;
+export const MobileLineBreak = styled.span`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: inline;
   }
 `;
