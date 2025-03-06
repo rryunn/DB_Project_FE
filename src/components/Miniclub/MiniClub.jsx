@@ -109,13 +109,13 @@ function MiniClub() {
   if (loading) return <S.PageContainer>Loading...</S.PageContainer>;
   if (error) return <S.PageContainer>Error: {error}</S.PageContainer>;
 
+  const normalize = (str) => str.toLowerCase().replace(/[^a-z0-9]/g, '');
   // 클라이언트 측 필터링: 검색어로 시작하는 club_name만 선택 (대소문자 무시, trim 적용)
   let filteredEvents = events.filter((event) =>
-    (event.club_name?.trim().toLowerCase() || '').startsWith(
-      searchTerm.trim().toLowerCase()
+    normalize(event.club_name?.trim() || '').startsWith(
+      normalize(searchTerm.trim())
     )
   );
-
   // 모집 필터 적용 (전체는 필터링하지 않음)
   if (selectedFilter === '수시') {
     filteredEvents = filteredEvents.filter(

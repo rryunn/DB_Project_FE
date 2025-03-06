@@ -21,6 +21,7 @@ const categories = [
       '창작전시분과',
       '체육분과',
       '학술언론분과',
+      '소모임',
     ],
   },
 ];
@@ -126,14 +127,13 @@ function ClubList() {
     }
     return '';
   };
-
+  const normalize = (str) => str.toLowerCase().replace(/[^a-z0-9]/g, '');
   // 클라이언트 측 필터링: 검색어로 시작하는 club_name만 선택 (대소문자 무시, trim 적용)
   let filteredEvents = events.filter((event) =>
-    (event.club_name?.trim().toLowerCase() || '').startsWith(
-      searchTerm.trim().toLowerCase()
+    normalize(event.club_name?.trim() || '').startsWith(
+      normalize(searchTerm.trim())
     )
   );
-
   // 모집 필터 적용: '수시' 또는 '상시' 선택 시 해당 조건으로 필터링 (기본 '전체'는 필터링하지 않음)
   if (selectedFilter === '수시') {
     filteredEvents = filteredEvents.filter(
