@@ -22,7 +22,7 @@ function FestivalList() {
       setLoading(true);
       try {
         const response = await axios.get(
-          `${API_URL}/api/home/updatedrecruitment`,
+          `${API_URL}/api/home/closedrecruitment`,
           {
             headers: {
               'Content-Type': 'application/json',
