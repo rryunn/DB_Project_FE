@@ -5,7 +5,7 @@ import * as S from './ClubInfo.styles';
 import defaultImage from '../../asset/mainLogo.png';
 import ClubApply from '../ClubApply/ClubApply';
 import ClubEvent from '../ClubEvent/ClubEvent';
-import { jwtDecode } from 'jwt-decode';
+//import { jwtDecode } from "jwt-decode";
 import { FaInstagram, FaYoutube, FaLink, FaGlobe } from 'react-icons/fa';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
@@ -17,15 +17,102 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 const API_URL = process.env.REACT_APP_API_URL;
 
-const getUserInfo = () => {
-  const token = localStorage.getItem('accessToken');
-  if (!token) return null;
+//axios.defaults.withCredentials = true;
+
+// 🔥 리프레시 토큰을 사용하여 새 accessToken을 요청하는 함수 추가
+const refreshAccessToken = async () => {
   try {
-    return jwtDecode(token);
-  } catch (error) {
-    console.error('🚨 Invalid token:', error);
+    const res = await fetch(`${API_URL}/api/auth/refresh`, {
+      method: 'POST',
+      credentials: 'include', // Refresh Token을 쿠키에서 자동 포함
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      localStorage.setItem('accessToken', data.accessToken);
+      localStorage.setItem('accessTokenExpiry', Date.now() + 15 * 60 * 1000);
+      return data.accessToken;
+    } else {
+      console.log('Refresh token 호출 실패:', data.message);
+      alert('로그인이 필요합니다.');
+      localStorage.removeItem('accessToken');
+      window.location.href = '/login';
+
+      return null;
+    }
+  } catch (err) {
+    console.error('Access token 재발급 오류:', err);
+    alert('로그인이 필요합니다.');
+    localStorage.removeItem('accessToken');
+    window.location.href = '/login';
     return null;
   }
+};
+
+// 🔥 axios 인터셉터 추가 (토큰 만료 시 자동 갱신 후 재요청)
+axios.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    if (error.response && error.response.status === 401) {
+      console.warn('🔄 AccessToken 만료, 리프레시 토큰 확인 중...');
+
+      if (!localStorage.getItem('accessToken')) {
+        console.warn('❌ AccessToken 없음 → 자동 리프레시 중단');
+        return Promise.reject(error);
+      }
+
+      const newAccessToken = await refreshAccessToken();
+      if (newAccessToken) {
+        error.config.headers.Authorization = `Bearer ${newAccessToken}`;
+        return axios(error.config);
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
+const parseJwt = (token) => {
+  try {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split('')
+        .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+        .join('')
+    );
+    return JSON.parse(jsonPayload);
+  } catch (e) {
+    console.error('JWT 파싱 오류:', e);
+    return null;
+  }
+};
+
+const getUserInfo = async () => {
+  let token = localStorage.getItem('accessToken');
+
+  if (!token) {
+    console.warn(
+      '🔄 AccessToken 없음, RefreshToken으로 새 AccessToken 요청...'
+    );
+    token = await refreshAccessToken(); // Refresh Token을 사용하여 새 Access Token 발급
+    if (!token) {
+      console.warn('🚨 RefreshToken도 만료됨. 로그인 필요');
+      return null;
+    }
+  }
+
+  const payload = parseJwt(token);
+  if (!payload) {
+    console.warn('🚨 AccessToken이 유효하지 않음, 새로고침 필요...');
+    token = await refreshAccessToken();
+    if (!token) {
+      console.warn('🚨 새 AccessToken도 발급 실패. 로그인 필요');
+      return null;
+    }
+  }
+
+  return payload;
 };
 
 function ClubInfo() {
@@ -40,32 +127,48 @@ function ClubInfo() {
   const userInfo = useMemo(() => getUserInfo(), []);
   const isClubAdmin = userInfo?.club_ids?.includes(Number(club_id));
   useEffect(() => {
-    if (!userInfo) {
-      alert('로그인이 필요합니다!');
-      navigate('/login');
-    }
-  }, [userInfo, navigate]);
+    const checkLoginStatus = async () => {
+      const user = await getUserInfo(); // ✅ AccessToken 확인 후 없으면 RefreshToken으로 자동 갱신
+      if (!user) {
+        alert('로그인이 필요합니다!');
+        navigate('/login');
+      }
+    };
+
+    checkLoginStatus();
+  }, [navigate]);
 
   useEffect(() => {
     const fetchClubData = async () => {
       setLoading(true);
-      const token = localStorage.getItem('accessToken');
+      let token = localStorage.getItem('accessToken');
+
       if (!token) {
-        setError('로그인이 필요합니다.');
-        setLoading(false);
-        return;
+        console.warn(
+          '🔄 AccessToken 없음, RefreshToken으로 새 AccessToken 요청...'
+        );
+        token = await refreshAccessToken();
+        if (!token) {
+          setError('로그인이 필요합니다.');
+          setLoading(false);
+          return;
+        }
       }
+
       try {
-        const response = await axios.get(`${API_URL}/api/clubs/${club_id}`, {
-          headers: {
-            'Content-Type': 'application/json',
-            'ngrok-skip-browser-warning': '69420',
-            Authorization: `Bearer ${token}`,
-          },
+        const res = await fetch(`${API_URL}/api/clubs/${club_id}`, {
+          method: 'GET',
+          headers: { Authorization: `Bearer ${token}` },
+          credentials: 'include', // ✅ 특정 요청에서만 쿠키 포함
         });
-        setClubInfo(response.data);
+
+        if (res.ok) {
+          setClubInfo(await res.json());
+        } else {
+          setError('데이터를 불러오는 중 오류가 발생했습니다.');
+        }
       } catch (err) {
-        console.error('🚨 API Error:', err.response || err.message);
+        console.error('🚨 API Error:', err);
         setError('데이터를 불러오는 중 오류가 발생했습니다.');
       } finally {
         setLoading(false);
