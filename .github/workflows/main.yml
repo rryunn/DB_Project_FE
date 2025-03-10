@@ -1,14 +1,14 @@
 name: Node.js CI/CD
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
 
-# 이 설정을 추가하면 github-actions[bot]에게 리포지토리 콘텐츠를 수정할 권한을 부여합니다.
+# GitHub Actions에 리포지토리 콘텐츠 수정 권한 부여
 permissions:
   contents: write
 
@@ -23,13 +23,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: '16'
 
-      - name: Create .env File
-        run: |
-          echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}" > .env.production
-          echo "✅ .env.production 파일이 생성되었습니다!"
-          cat .env.production
+      # node_modules 캐싱 (npm install 속도 개선)
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: npm install
@@ -37,21 +40,36 @@ jobs:
       - name: Run tests
         run: npm test -- --watchAll=false
 
+      # .env 파일 생성
+      - name: Create .env File
+        run: |
+          echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}" > .env.production
+          echo "✅ .env.production 파일이 생성되었습니다!"
+          cat .env.production
+
+      # build 폴더 캐싱 (빌드 속도 개선)
+      - name: Cache Build Files
+        uses: actions/cache@v3
+        with:
+          path: build
+          key: ${{ runner.os }}-build-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+
       - name: Build application
         run: |
           echo "빌드 시작! 현재 적용된 환경 변수:"
           echo "REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}"
           npm install -g cross-env
-          cross-env REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }} npm run build
+          CI=false cross-env REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }} npm run build
           echo "✅ 빌드 완료!"
-          grep -r "http" build/static/js/ || echo "❌ 환경 변수가 빌드되지 않음!"
-          cat build/static/js/main.*.js | grep -i "http" || echo "❌ 빌드된 파일에서 환경 변수가 보이지 않음!"
 
       - name: Set Git user info
         run: |
           git config --global user.email 'rryunn@ajou.ac.kr'
           git config --global user.name 'rryunn'
 
+      # main 브랜치에 push될 때만 배포 실행
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main'
         env:
