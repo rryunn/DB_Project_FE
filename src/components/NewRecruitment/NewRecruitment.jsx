@@ -5,6 +5,8 @@ import axios from 'axios';
 import defaultImage from '../../asset/mainLogo.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Mousewheel } from 'swiper/modules';
+
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -89,12 +91,23 @@ function FestivalList() {
                 }
               >
                 <S.ImageWrapper style={{ height: '180px', overflow: 'hidden' }}>
-                  <img
+                  {/* <img
                     src={event.main_image}
                     alt={event.title}
                     style={{
                       width: '100%',
                       height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: '10px',
+                    }}
+                  /> */}
+                  <LazyLoadImage
+                    src={event.main_image}
+                    alt={event.title}
+                    effect="blur"
+                    width="100%"
+                    height="100%"
+                    style={{
                       objectFit: 'cover',
                       borderRadius: '10px',
                     }}
