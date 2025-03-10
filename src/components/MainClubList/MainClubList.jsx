@@ -8,6 +8,7 @@ import { Navigation, Pagination, Mousewheel } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -109,12 +110,23 @@ function FestivalList() {
                 }
               >
                 <S.ImageWrapper style={{ height: '180px', overflow: 'hidden' }}>
-                  <img
+                  {/* <img
                     src={event.main_image}
                     alt={event.title}
                     style={{
                       width: '100%',
                       height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: '10px',
+                    }}
+                  /> */}
+                  <LazyLoadImage
+                    src={event.main_image}
+                    alt={event.title}
+                    effect="blur"
+                    width="100%"
+                    height="100%"
+                    style={{
                       objectFit: 'cover',
                       borderRadius: '10px',
                     }}
