@@ -1,7 +1,8 @@
 ## 🏫 대학교 동아리 사이트
 
 ### 📆 개발 기간  
-**2025.01 ~ 2025.02**  
+**2024.09 ~ 2025.02**
+**리뉴얼 버전 : https://github.com/ejiyoon37/aClub**
 
 ### 👨‍💻 개발 인원  
 **4명**  
@@ -22,6 +23,3 @@
 - Express  
 - MySQL  
 - AWS
-- 
-![Image](https://github.com/user-attachments/assets/f4905f07-c402-4f12-b8a6-ea87488c4fbc)
-
