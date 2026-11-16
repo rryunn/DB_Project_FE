@@ -1,4 +1,4 @@
-## 🏫 아주대학교 동아리 사이트
+## 🏫 대학교 동아리 사이트
 
 ### 📆 개발 기간  
 **2025.01 ~ 2025.02**  
@@ -7,7 +7,7 @@
 **3명**  
 
 ### 🚀 배포 사이트  
-[ajouclub.co.kr](https://ajouclub.co.kr)  
+[ajouclub.co.kr](https://ajouclub.co.kr)  [현재 서비스 중단 중]
 
 ### 🛠 기술 스택  
 #### **Frontend**  
